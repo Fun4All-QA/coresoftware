@@ -89,11 +89,11 @@ void PHG4OuterHcalField::GetFieldValue(const double Point[4], double* Bfield) co
       std::cout << "layer_RdPhi: " << layer_RdPhi << std::endl;
       std::cout << "layer_width: " << layer_width << std::endl;
       std::cout << "tilt_angle: " << tilt_angle << std::endl;
+      std::cout << "returning Bx: " << Bfield[0] << ", By: " << Bfield[1] << ", Bz: " << Bfield[2] << std::endl;
       std::cout << "And this is who called it:" << std::endl;
       std::cout << boost::stacktrace::stacktrace();
       std::cout << std::endl;
-      gSystem->Exit(1);
-      exit(1);
+      return;
     }
     // sign definition of tilt_angle is rotation around the -z axis
     const G4Vector3D absorber_dir(cos(atan2(y, x) - tilt_angle),
